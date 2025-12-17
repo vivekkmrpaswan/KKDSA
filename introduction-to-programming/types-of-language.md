@@ -15,7 +15,7 @@
 <h5>Object oriented</h5>
 - Revolves around objects
 - code + data = object
-- developed to make it easier to develop, debug, reuse, and maintain softwere.
+- developed to make it easier to develop, debug, reuse, and maintain software.
 
 **Static v/s Dynamic languages**
             Static                                           Dynamic
@@ -30,7 +30,7 @@ a = [1,2,3,4]
 b = a
 a[0] = 99
 b = ?
-ans b is also refering to the same object so, 
+ans b is also referring to the same object so, 
 b = [99,2,3,4]
 
 **Garbage collection**
