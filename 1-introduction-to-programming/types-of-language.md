@@ -1,40 +1,52 @@
-**Types of languages**
-1. Procedural
-2. Functional
-3. Object oriented
+## Types of Languages
 
-<h5>Procedural</h5>
-- specifies a series of well-structured steps and procedures to compose a program.
-- contains a systematic order of statements, functions and commands to complete a task.
+1.  **Procedural**
+2.  **Functional**
+3.  **Object Oriented**
 
-<h5>Functional</h5>
-- Writing a program only in pure function i.e. never modify variables, but only create a new ones as an output.
-- Used in situations where we have to perform lots of different operations on the same set of data, like ML.
-- First class functions?
+### Procedural
+* Specifies a series of well-structured steps and procedures to compose a program.
+* Contains a systematic order of statements, functions, and commands to complete a task.
 
-<h5>Object oriented</h5>
-- Revolves around objects
-- code + data = object
-- developed to make it easier to develop, debug, reuse, and maintain software.
+### Functional
+* Writing a program only in **pure functions** (i.e., never modify variables, but only create new ones as an output).
+* Used in situations where we have to perform lots of different operations on the same set of data, like Machine Learning (ML).
+* First class functions?
 
-**Static v/s Dynamic languages**
-            Static                                           Dynamic
-- Perform type checking at compile time       - Perform type checking at runtime
-- Errors will show at compile time            - Error might not show till program is run
-- Declare datatype before you use it          - No need to declare datatype of variables
-- More control                                - Saves time in writing code but might give error at runtime
+### Object Oriented
+* Revolves around objects.
+* **Code + Data = Object.**
+* Developed to make it easier to develop, debug, reuse, and maintain software.
 
+---
 
-If the Object is changed via any of the reference value all the reference will see the change
-a = [1,2,3,4]
+## Static v/s Dynamic Languages
+
+| Feature | Static | Dynamic |
+| :--- | :--- | :--- |
+| **Type Checking** | Perform type checking at **compile time** | Perform type checking at **runtime** |
+| **Error Timing** | Errors will show at compile time | Error might not show till program is run |
+| **Declaration** | Declare datatype **before** you use it | **No need** to declare datatype of variables |
+| **Pros/Cons** | More control | Saves time in writing code but might give error at runtime |
+
+---
+
+## Object Reference & Mutability
+
+If the Object is changed via any of the reference values, all the references will see the change.
+
+```python
+a = [1, 2, 3, 4]
 b = a
 a[0] = 99
-b = ?
-ans b is also referring to the same object so, 
-b = [99,2,3,4]
 
-**Garbage collection**
-- Any object with no reference variable will get collected by the garbage collector
+# b = ?
+# ans: b is also referring to the same object so:
+b = [99, 2, 3, 4]
+```
 
+---
 
+## Garbage Collection
 
+* Any object with no reference variable will get collected by the **garbage collector**.
