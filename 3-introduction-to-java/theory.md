@@ -1,28 +1,26 @@
-# Java Execution and Architecture
-
 ## How Java Code Executes
 
+```text
+ ----------------      ----------------      ---------------- 
+|   .java file   |    |   .class file  |    |  Machine code  |
+| (human read)   |    |   (byte code)  |    |   (0 and 1)    |
+ ----------------      ----------------      ---------------- 
+        |                     |                     |
+        |      compiler       |     interpreter     |
+         -------------->       ---------------> 
+          (entire file)         (line by line)
+```
 
+- This code will not directly run on a system.
+- We need JVM to run this.
+- Reason why Java is platform independent.
 
-| Step | Component | Action | Result |
-| :--- | :--- | :--- | :--- |
-| **Source** | `.java` file | Human readable code | Source Code |
-| **Compile Time** | `javac` | Compiles entire file | `.class` file (Bytecode) |
-| **Runtime** | `Interpreter` | Line-by-line execution | Machine Code (0s and 1s) |
-
-* **JVM Requirement:** This code will not directly run on a system; we need the JVM to run it.
-* **Platform Independence:** This process is the reason why Java is platform independent.
-
----
-
-## More About Platform Independence
-
-* **Bytecode:** It means that byte code can run on all operating systems.
-* **Conversion:** We need to convert source code to machine code so the computer can understand.
-* **Compiler vs. Interpreter:**
-    * In **C/C++**, the compiler produces a `.exe` file which is platform dependent.
-    * In **Java**, the compiler produces **Bytecode**. The **JVM** then converts this to machine code.
-* **Key Fact:** Java is platform-independent, but the **JVM itself is platform dependent**.
+**More about platform independence**
+- It means that byte code can run on all operating systems.
+- Compiler helps in turning source code into executable code (instructions for the computer).
+- C/C++ results in a `.exe` (platform dependent).
+- Java results in **Bytecode**; JVM converts this to machine code.
+- **Java is platform-independent but JVM is platform dependent.**
 
 ---
 
@@ -42,73 +40,55 @@ JDK = JRE + Development Tools                               |
    |       |                                 |          |   |
    |       |    ________________________     |          |   |
    |       |   |                        |    |          |   |
-   |       |   |      JIT               |    |          |   |
-   |       |   |  (Just in time)        |    |          |   |
+   |       |   |          JIT           |    |          |   |
+   |       |   |     (Just in time)     |    |          |   |
    |       |   |________________________|    |          |   |
-   |       |                                 |          |   |
    |       |_________________________________|          |   |
    |____________________________________________________|   |
 ____________________________________________________________|
 ```
 
-### JDK (Java Development Kit)
-* Provides the environment to **develop and run** Java programs.
-* **Includes:**
-    1.  Development tools (environment to develop).
-    2.  JRE (to execute).
-    3.  Compiler (`javac`).
-    4.  Archive (`jar`).
-    5.  Docs generator (`javadoc`).
-    6.  Interpreter / Loader.
+### JDK
+- Provides environment to develop and run Java program.
+- Includes: Development tools (javac), JRE, archive (jar), and docs generator (javadoc).
 
-### JRE (Java Runtime Environment)
-* An installation package that provides the environment to **only run** the program.
-* **Consists of:** Deployment technologies, UI toolkits, Integration/Base libraries, and the JVM.
+### JRE
+- Package to **only run** the program.
+- After getting the `.class` file:
+  1. Class loader loads needed classes.
+  2. JVM sends code to Byte code verifier to check format.
 
 ---
 
-## JVM Execution & Runtime
+## Runtime & JVM Execution
 
-### Execution Strategy
-* **Interpreter:** Performs line-by-line execution. If a method is called many times, it interprets it again and again.
-* **JIT (Just In Time):** For repeated methods, JIT provides direct machine code so re-interpretation is not required. This makes execution faster.
-* **Garbage Collector:** Automates memory management.
+**Interpreter:**
+- Line by line execution.
+- When one method is called many times, it interprets again and again.
 
-### Runtime Flow
+**JIT (Just In Time):**
+- For repeated methods, JIT provides direct machine code so re-interpretation is not required.
+- Makes execution faster.
+
+**Execution Flow:**
 ```text
 Class Loader ➔ Byte code verifier ➔ Interpreter ➔ Runtime ➔ Hardware
 ```
 
----
+### Class Loader (How JVM works)
+- **Loading:** Reads `.class` file, generates binary data, creates object in **heap**.
+- **Linking:** Verifies file, allocates memory for variables, replaces symbolic references.
+- **Initialization:** Assigns values to static variables and executes static blocks.
 
-## The Class Loader (How JVM Works)
-
-
-
-1.  **Loading:**
-    * Reads the `.class` file and generates binary data.
-    * Creates an object of this class in the **Heap**.
-2.  **Linking:**
-    * **Verify:** JVM verifies the `.class` file.
-    * **Prepare:** Allocates memory for class variables and values.
-    * **Resolve:** Replaces symbolic references with direct references.
-3.  **Initialization:**
-    * Static variables are assigned their defined values and static blocks are executed.
-
----
-
-## Summary Relationship Diagram
-
+**Summary Relationship:**
 ```text
 Java Source code
        |
-       |
        v                             JRE
       JDK ------------> Bytecode      ^
-                         |            |
                          |            |
                          v            |
                         JVM-----------|
 ```
 
-> **Note:** The JVM contains the **Stack** and **Heap** memory allocations.
+> JVM contains the **stack** and **heap** memory allocations.
