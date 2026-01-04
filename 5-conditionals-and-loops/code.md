@@ -1,4 +1,5 @@
 ## if else
+
 ```
 package com.vivek;
 
@@ -114,6 +115,7 @@ public class Loops {
 }
 
 ```
+
 ## Largest
 
 ```
@@ -182,3 +184,26 @@ public class CaseCheck {
 
 ```
 
+## Conditions
+
+```
+
+package com.vivek;
+
+public class Conditionals {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+
+        if(a == 10 && b == 20){
+            System.out.println("Hello!");
+        }
+
+        if(a == 10 || b == 20){
+            System.out.println("Hello!");
+        }
+    }
+}
+
+
+```
