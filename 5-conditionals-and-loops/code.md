@@ -235,3 +235,44 @@ public class Fibonacci {
 }
 
 ```
+
+## Count Occurrence
+
+```
+
+package com.vivek;
+
+public class CountOccurrence {
+    public static void main(String[] args) {
+
+        int num = 1385757879;
+        int target = 7;
+        int count = 0;
+        //Approach 1
+//        String str = String.valueOf(num);
+//        char [] ch = str.toCharArray();
+////        System.out.println(ch);
+//        for (int i = 0; i < ch.length ; i++) {
+//            if(ch[i] == '7'){
+//                count++;
+//            }
+//        }
+//
+//        System.out.println(count);
+
+        //Approach 2 (expected)
+        while(num > 0){
+            int rem = num % 10;
+
+            if(rem == 7){
+                count++;
+            }
+            num = num / 10;
+        }
+        System.out.println(count);
+    }
+}
+
+
+```
+
